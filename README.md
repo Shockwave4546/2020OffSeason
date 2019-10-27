@@ -14,14 +14,13 @@ For FRC Season 2019-2020
 - Simon O’Malley
 
 # Index of FRC-2019
-- [Main Robot Code]()
-- [N/A]()
-    - [N/A]()
-    - [N/A]()
-    - [N/A]()
-    - [N/A]()
-    - [N/A]()
-- [N/A]()
+- [Controllers](https://github.com/Shockwave4546/FRC-2020/tree/master/src/main/java/org/usfirst/frc/team4546/controllers)
+- [Models](https://github.com/Shockwave4546/FRC-2020/tree/master/src/main/java/org/usfirst/frc/team4546/models)
+- [Robot](https://github.com/Shockwave4546/FRC-2020/tree/master/src/main/java/org/usfirst/frc/team4546/robot)
+    - [AUTO COMMANDS FOLDER](https://github.com/Shockwave4546/FRC-2020/tree/master/src/main/java/org/usfirst/frc/team4546/robot/commands/autonomous)
+    - [DRIVETRAIN COMMANDS FOLDER](https://github.com/Shockwave4546/FRC-2020/tree/master/src/main/java/org/usfirst/frc/team4546/robot/commands/drivetrain)
+    - [ROBOT COMMANDS FOLDER](https://github.com/Shockwave4546/FRC-2020/tree/master/src/main/java/org/usfirst/frc/team4546/robot/commands/robot)
+    - [SUBSYSTEMS FOLDER](https://github.com/Shockwave4546/FRC-2020/tree/master/src/main/java/org/usfirst/frc/team4546/robot/subsystems)
 
 
 ## Important Debug Notes
