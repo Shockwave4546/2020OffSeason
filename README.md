@@ -13,7 +13,7 @@ For FRC Season 2019-2020
 - Marena Wilson
 - Simon O’Malley
 
-# Index of FRC-2019
+# Index of FRC-2020
 - [Controllers](https://github.com/Shockwave4546/FRC-2020/tree/master/src/main/java/org/usfirst/frc/team4546/controllers)
 - [Models](https://github.com/Shockwave4546/FRC-2020/tree/master/src/main/java/org/usfirst/frc/team4546/models)
 - [Robot](https://github.com/Shockwave4546/FRC-2020/tree/master/src/main/java/org/usfirst/frc/team4546/robot)
