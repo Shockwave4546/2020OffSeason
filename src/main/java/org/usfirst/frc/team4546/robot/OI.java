@@ -25,7 +25,7 @@ public class OI {
 
 	public OI() {
 		driverController = new ShockwaveXboxController(0, 0.10, 0.10);
-		operatorController = new ShockwaveXboxController(1, 0.10, 0.1);
+		//operatorController = new ShockwaveXboxController(1, 0.10, 0.1);
 
 
 
