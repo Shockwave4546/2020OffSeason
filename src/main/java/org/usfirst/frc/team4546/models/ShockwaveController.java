@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 public class ShockwaveController extends Joystick {
-
+	private double deadzone = .2;
 	public ShockwaveController(int port) {
 		super(port);
 	}
@@ -32,28 +32,48 @@ public class ShockwaveController extends Joystick {
 	// public DPadUp dPadUp = new DPadUp(this);
 	// public DPadDown dPadDown = new DPadDown(this);
 
-	public double getTriggerTwist() {
+	/*public double getTriggerTwist() {
 		double leftTriggerValue = this.getRawAxis(2);
 		double rightTriggerValue = -1 * this.getRawAxis(3);
 
 		return leftTriggerValue + rightTriggerValue;
 
-	}
+	}*/
 
 	public double getLeftStickX() {
-		return this.getRawAxis(0);
+		double returnDouble = this.getRawAxis(0);
+		if(-deadzone <= returnDouble && returnDouble <= deadzone){
+			return 0;
+		} else {
+			return returnDouble;
+		}
 	}
 
 	public double getLeftStickY() {
-		return -this.getRawAxis(1);
+		double returnDouble = this.getRawAxis(1);
+		if(-deadzone <= returnDouble && returnDouble <= deadzone){
+			return 0;
+		} else {
+			return returnDouble;
+		}
 	}
 
 	public double getRightStickX() {
-		return this.getRawAxis(4); // 4
+		double returnDouble = this.getRawAxis(4);
+		if(-deadzone <= returnDouble && returnDouble <= deadzone){
+			return 0;
+		} else {
+			return returnDouble;
+		}
 	}
 
 	public double getRightStickY() {
-		return -this.getRawAxis(5);
+		double returnDouble = this.getRawAxis(5);
+		if(-deadzone <= returnDouble && returnDouble <= deadzone){
+			return 0;
+		} else {
+			return returnDouble;
+		}
 	}
 
 	public void setRumble(double leftValue, double rightValue) {
