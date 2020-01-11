@@ -10,7 +10,8 @@ package org.usfirst.frc.team4546.robot;
 import org.usfirst.frc.team4546.models.RobotMode;
 import org.usfirst.frc.team4546.robot.commands.robot.SetRobotMode;
 import org.usfirst.frc.team4546.robot.subsystems.Drivetrain;
-
+import org.usfirst.frc.team4546.robot.commands.robot.colorWheel;
+import org.usfirst.frc.team4546.controllers.ShockwaveXboxController;;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -31,14 +32,16 @@ public class Robot extends TimedRobot {
 
 	public static OI oi;
 	public static RobotMode mode = RobotMode.Normal;
+	public static ShockwaveXboxController controller;
+	public static colorWheel wheelOfFortune;
 
 	// SendableChooser<Command> m_chooser = new SendableChooser<>();
 
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		SmartDashboard.putData("Climb Mode", new SetRobotMode(RobotMode.Climb));
-		SmartDashboard.putData("Normal Mode", new SetRobotMode(RobotMode.Normal));
+		ShockwaveXboxController controller = new ShockwaveXboxController(RobotMap.cDriverPort);
+		colorWheel wheelOfFortune = new colorWheel();
 
 		// CameraServer.getInstance().startAutomaticCapture();
 	}
@@ -86,6 +89,9 @@ public class Robot extends TimedRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 
+		if(controller.getRawButtonPressed(4)){
+			wheelOfFortune.switchPosition();
+		}
 	}
 
 	@Override
