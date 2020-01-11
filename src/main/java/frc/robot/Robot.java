@@ -1,5 +1,5 @@
 package frc.robot;
-import edu.wpi.first.wpilibj.command.Scheduler;
+
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Timer;
@@ -109,7 +109,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void disabledPeriodic() {
-    Scheduler.getInstance().run();
+
 
   }
 
@@ -120,7 +120,6 @@ public class Robot extends TimedRobot {
 
   @Override
   public void autonomousPeriodic() {
-    Scheduler.getInstance().run();
     teleopPeriodic();
 
   }
@@ -132,7 +131,6 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
-    Scheduler.getInstance().run();
     motor.rotateMotor(speed.getDouble(0.0));
   }
 
