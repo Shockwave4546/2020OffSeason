@@ -8,6 +8,7 @@
 package frc.team4546.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import frc.team4546.robot.subsystems.colorPosition;
 import frc.team4546.robot.subsystems.colorRotation;
 
 import edu.wpi.first.wpilibj.I2C;
@@ -20,8 +21,9 @@ import edu.wpi.first.networktables.NetworkTableInstance;
 import com.revrobotics.ColorSensorV3;
 import com.revrobotics.ColorMatchResult;
 import com.revrobotics.ColorMatch;
-
 import edu.wpi.first.wpilibj.DriverStation;
+
+import frc.team4546.controllers.ShockwaveXboxController;
 
 import frc.team4546.robot.subsystems.motors.talonMotor;
 
@@ -41,8 +43,13 @@ public class Robot extends TimedRobot {
   private final Color kRedTarget = ColorMatch.makeColor(0.561, 0.232, 0.114);
   private final Color kYellowTarget = ColorMatch.makeColor(0.361, 0.524, 0.113);
 
+  public ShockwaveXboxController driverController;
+
   @Override
   public void robotInit() {
+    driverController = new ShockwaveXboxController(0, 0.10, 0.08);
+
+		driverController.leftTriggerButton.configureThreshold(0.075);
   }
 
   @Override
@@ -60,8 +67,8 @@ public class Robot extends TimedRobot {
   }
 
   public void teleopInit() {
-    colorRotation wheelOfFortune = new colorRotation();
-    wheelOfFortune.rotationsetColor();
+    colorRotation RotationControl = new colorRotation();
+    RotationControl.rotationsetColor();
     SmartDashboard.putNumber("Rotation Count",0);
     SmartDashboard.putBoolean("onColor",true);
     SmartDashboard.putBoolean("isYellow", false);
@@ -73,8 +80,10 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
-    colorRotation wheelOfFortune = new colorRotation();
-    wheelOfFortune.rotationControl();
+
+
+    colorRotation RotationControl = new colorRotation();
+    RotationControl.rotationControl();
 
   }
 
