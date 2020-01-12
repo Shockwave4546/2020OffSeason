@@ -68,7 +68,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     colorRotation wheelOfFortune = new colorRotation();
-    wheelOfFortune.rotationControl();
+    wheelOfFortune.rotationControl(SmartDashboard.getString("Rotation Count Color",""));
 
   }
 

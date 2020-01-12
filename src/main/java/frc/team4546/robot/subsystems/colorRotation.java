@@ -56,7 +56,7 @@ public class colorRotation {
 
     }
 
-    public void rotationControl() {
+    public void rotationControl(String setColor) {
         m_colorMatcher.addColorMatch(kBlueTarget);
         m_colorMatcher.addColorMatch(kGreenTarget);
         m_colorMatcher.addColorMatch(kRedTarget);
@@ -86,9 +86,9 @@ public class colorRotation {
         SmartDashboard.putNumber("Confidence", match.confidence);
         SmartDashboard.putString("Detected Color", colorString);
 
-        String countColor = SmartDashboard.getString("Rotation Count Color","");
-        System.out.println(countColor);
-        if (colorString == countColor) {
+
+        System.out.println(setColor);
+        if (colorString == setColor) {
             
         }
 
