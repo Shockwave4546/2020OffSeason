@@ -8,7 +8,10 @@
 package frc.team4546.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
-import frc.team4546.robot.subsystems.colorPosition;
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.XboxController.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.team4546.robot.commands.ControlPanel;
 import frc.team4546.robot.subsystems.colorRotation;
 
 import edu.wpi.first.wpilibj.I2C;
@@ -23,8 +26,6 @@ import com.revrobotics.ColorMatchResult;
 import com.revrobotics.ColorMatch;
 import edu.wpi.first.wpilibj.DriverStation;
 
-import frc.team4546.controllers.ShockwaveXboxController;
-
 import frc.team4546.robot.subsystems.motors.talonMotor;
 
 /**
@@ -38,18 +39,16 @@ public class Robot extends TimedRobot {
   private final ColorMatch m_colorMatcher = new ColorMatch();
 
 
+  private ControlPanel dRover1 = new ControlPanel();
+
   private final Color kBlueTarget = ColorMatch.makeColor(0.143, 0.427, 0.429);
   private final Color kGreenTarget = ColorMatch.makeColor(0.197, 0.561, 0.240);
   private final Color kRedTarget = ColorMatch.makeColor(0.561, 0.232, 0.114);
   private final Color kYellowTarget = ColorMatch.makeColor(0.361, 0.524, 0.113);
 
-  public ShockwaveXboxController driverController;
 
   @Override
   public void robotInit() {
-    driverController = new ShockwaveXboxController(0, 0.10, 0.08);
-
-		driverController.leftTriggerButton.configureThreshold(0.075);
   }
 
   @Override
@@ -67,8 +66,6 @@ public class Robot extends TimedRobot {
   }
 
   public void teleopInit() {
-    colorRotation RotationControl = new colorRotation();
-    RotationControl.rotationsetColor();
     SmartDashboard.putNumber("Rotation Count",0);
     SmartDashboard.putBoolean("onColor",true);
     SmartDashboard.putBoolean("isYellow", false);
@@ -80,10 +77,11 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
-
-
-    colorRotation RotationControl = new colorRotation();
-    RotationControl.rotationControl();
+    dRover1.panelControl();
+    //colorRotation RotationControl = new colorRotation();
+    //yButton.whenPressed(RotationControl.rotationsetColor());
+    //bButton.whenPressed(RotationControl.positionControl());
+    //xButton.whenPressed(RotationControl.rotationControl());
 
   }
 
