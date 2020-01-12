@@ -88,13 +88,73 @@ public class colorRotation {
         SmartDashboard.putNumber("Confidence", match.confidence);
         SmartDashboard.putString("Detected Color", colorString);
 
-        String setColor = SmartDashboard.getString("Rotation Count Color","");
-        
+        String setColor = SmartDashboard.getString("Rotation Count Color", "Null");
+
         if (colorString.equals(setColor)) {
-           System.out.println(setColor); 
-        }else{
-           System.out.println("not color");  
+            if (SmartDashboard.getBoolean("onColor", false) == false) {
+                SmartDashboard.putNumber("Rotation Count", SmartDashboard.getNumber("Rotation Count", 0) + 1);
+                SmartDashboard.putBoolean("onColor", true);
+            }
+        } else {
+            SmartDashboard.putBoolean("onColor", false);
+        }
+        /////////////////////////////////////////////////////////
+
+        /////////////////////////////////////////////////////////
+
+        if (colorString == "Yellow") {
+            SmartDashboard.putBoolean("isYellow", true);
+        }
+        if (colorString == "Green") {
+            SmartDashboard.putBoolean("isGreen", true);
         }
 
+        /////////////////////////////////////////////////////////
+        //setColor = SmartDashboard.getString("Rotation Count Color", "");
+        /////////////////////////////////////////////////////////
+        if (SmartDashboard.getBoolean("isYellow", false) == true) {
+            if (colorString == "Green") {
+                
+                if (setColor.equalsIgnoreCase("Green")) {
+                    System.out.println(setColor);
+                    SmartDashboard.putNumber("Rotation Count", SmartDashboard.getNumber("Rotation Count", 0) - 1);
+                    SmartDashboard.putBoolean("isYellow", false);
+                }
+            } else if (colorString == "Blue") {
+                SmartDashboard.putBoolean("isYellow", false);
+
+            } else if (colorString == "Red") {
+                SmartDashboard.putBoolean("isYellow", false);
+
+            }
+        }
+        
+        if (SmartDashboard.getBoolean("isGreen", false) == true) {
+            if (colorString == "Yellow") {
+                
+                if (setColor.equalsIgnoreCase("Yellow")) {
+                    System.out.println(setColor);
+                    SmartDashboard.putNumber("Rotation Count", SmartDashboard.getNumber("Rotation Count", 0) - 1);
+                    SmartDashboard.putBoolean("isGreen", false);
+                }
+            } else if (colorString == "Blue") {
+                SmartDashboard.putBoolean("isGreen", false);
+
+            } else if (colorString == "Red") {
+                SmartDashboard.putBoolean("isGreen", false);
+
+            }
+        }
+        
+
+        /////////////////////////////////////////////////////////
+
+        /////////////////////////////////////////////////////////
+
+        if (SmartDashboard.getNumber("Rotation Count", 0) < 8) {
+            motor.rotateMotor(0.5);
+        } else {
+            motor.rotateMotor(0);
+        }
     }
 }

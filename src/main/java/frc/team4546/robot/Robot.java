@@ -43,8 +43,6 @@ public class Robot extends TimedRobot {
 
   @Override
   public void robotInit() {
-    colorRotation wheelOfFortune = new colorRotation();
-    wheelOfFortune.rotationsetColor();
   }
 
   @Override
@@ -62,7 +60,12 @@ public class Robot extends TimedRobot {
   }
 
   public void teleopInit() {
+    colorRotation wheelOfFortune = new colorRotation();
+    wheelOfFortune.rotationsetColor();
     SmartDashboard.putNumber("Rotation Count",0);
+    SmartDashboard.putBoolean("onColor",true);
+    SmartDashboard.putBoolean("isYellow", false);
+    SmartDashboard.putBoolean("isGreen", false);
   }
 
   /**
