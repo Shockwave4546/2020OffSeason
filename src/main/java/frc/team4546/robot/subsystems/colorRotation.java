@@ -7,7 +7,9 @@ import edu.wpi.first.wpilibj.util.Color;
 import com.revrobotics.ColorSensorV3;
 import com.revrobotics.ColorMatchResult;
 import com.revrobotics.ColorMatch;
-
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableEntry;
+import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.DriverStation;
 
 import frc.team4546.robot.subsystems.motors.talonMotor;
@@ -56,7 +58,7 @@ public class colorRotation {
 
     }
 
-    public void rotationControl(String setColor) {
+    public void rotationControl() {
         m_colorMatcher.addColorMatch(kBlueTarget);
         m_colorMatcher.addColorMatch(kGreenTarget);
         m_colorMatcher.addColorMatch(kRedTarget);
@@ -86,10 +88,12 @@ public class colorRotation {
         SmartDashboard.putNumber("Confidence", match.confidence);
         SmartDashboard.putString("Detected Color", colorString);
 
-
-        System.out.println(setColor);
-        if (colorString == setColor) {
-            
+        String setColor = SmartDashboard.getString("Rotation Count Color","");
+        
+        if (colorString.equals(setColor)) {
+           System.out.println(setColor); 
+        }else{
+           System.out.println("not color");  
         }
 
     }
