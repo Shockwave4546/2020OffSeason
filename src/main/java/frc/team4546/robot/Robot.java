@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.XboxController.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.team4546.robot.commands.ControlPanel;
+import frc.team4546.robot.commands.*;
 import frc.team4546.robot.subsystems.colorRotation;
 
 import edu.wpi.first.wpilibj.I2C;
@@ -39,7 +39,7 @@ public class Robot extends TimedRobot {
   private final ColorMatch m_colorMatcher = new ColorMatch();
 
 
-  private ControlPanel dRover1 = new ControlPanel();
+  //private ControlPanel dRover1 = new ControlPanel();
 
   private final Color kBlueTarget = ColorMatch.makeColor(0.143, 0.427, 0.429);
   private final Color kGreenTarget = ColorMatch.makeColor(0.197, 0.561, 0.240);
@@ -77,7 +77,6 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
-    dRover1.panelControl();
     //colorRotation RotationControl = new colorRotation();
     //yButton.whenPressed(RotationControl.rotationsetColor());
     //bButton.whenPressed(RotationControl.positionControl());
