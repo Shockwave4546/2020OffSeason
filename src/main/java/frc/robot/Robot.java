@@ -24,11 +24,11 @@ public class Robot extends TimedRobot {
   public static double[] motorPortArr = {0, 1, 2, 3, 4};
   public static double[] rotationalArr = {-1, -0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1};
   public static talonMotor motor;
-  public static talonMotor talon0 = new talonMotor(0, 0, 0);
-  public static talonMotor talon1 = new talonMotor(1, 0, 0);
-  public static talonMotor talon2 = new talonMotor(2, 0, 0);
-  public static talonMotor talon3 = new talonMotor(3, 0, 0);
-  public static talonMotor talon4 = new talonMotor(4, 0, 0);
+  public static talonMotor talon0 = new talonMotor(0, 1, 1);
+  public static talonMotor talon1 = new talonMotor(1, 1, 1);
+  public static talonMotor talon2 = new talonMotor(2, 1, 1);
+  public static talonMotor talon3 = new talonMotor(3, 1, 1);
+  public static talonMotor talon4 = new talonMotor(4, 1, 1);
 
   public ShuffleboardTab tab = Shuffleboard.getTab("Smartdashboard");
   public NetworkTableEntry speed;
